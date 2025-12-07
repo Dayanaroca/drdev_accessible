@@ -1,0 +1,23 @@
+{
+  "name": "drdevaccesible",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch": "postcss build/input.css -o assets/css/output.css --watch",
+    "build": "postcss build/input.css -o assets/css/output.css  --minify",
+    "bundle": "npm run build && node zip.js",
+    "deploy": "npm run build && node zip.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "adm-zip": "^0.5.16",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "postcss-cli": "^11.0.1",
+    "tailwindcss": "3.4"
+  }
+}

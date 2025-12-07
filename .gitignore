@@ -1,0 +1,46 @@
+### --- WordPress Core ---
+/wp-admin/
+/wp-includes/
+/wp-*.php
+/index.php
+/license.txt
+/readme.html
+/xmlrpc.php
+
+### --- WordPress Uploads ---
+/wp-content/uploads/
+
+### --- WordPress Config ---
+wp-config.php
+
+### --- Default Themes ---
+/wp-content/themes/twenty*/
+
+### --- Default Plugins ---
+/wp-content/plugins/hello.php
+
+### --- Ignore all themes except yours ---
+/wp-content/themes/*
+!wp-content/themes/drdevaccesible/
+
+### --- Node ---
+node_modules/
+
+### --- Build Artifacts ---
+dist/
+build/
+
+### --- Tailwind ---
+*.css.map
+*.min.css
+.cache/
+.pnp.*
+
+### --- Logs ---
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+### --- OS ---
+.DS_Store
+Thumbs.db
