@@ -5,7 +5,15 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  */
   ?>
-<section aria-label="<?php esc_attr_e( 'Sección principal we are accessible', 'drdevcustomlanguage' ); ?>" class="w-full mb-6 lg:mb-14">
+<section aria-label="<?php esc_attr_e( 'Sección principal we are accessible', 'drdevcustomlanguage' ); ?>" class="w-full">
+    <div class="bg-primary w-full py-2">
+        <h1 class="text-center text-white font-medium text-xl lg:text-3xl">
+            <?php esc_html_e( 'Especialistas en', 'drdevcustomlanguage' ); ?>
+            <span class="font-bold">
+                <?php esc_html_e( 'turismo accesible', 'drdevcustomlanguage' ); ?>
+            </span>
+        </h1>
+    </div>
     <div class="bg-home min-h-[30vh] lg:min-h-[50vh] flex items-center justify-center" role="img" aria-label="<?php esc_attr_e( 'Imagen de fondo con personas disfrutando del turismo accesible', 'drdevcustomlanguage' ); ?>">
         <h2 class="text-white text-[2rem] lg:text-5xl font-normal shadow-black/50">
             <?php esc_html_e( 'We are', 'drdevcustomlanguage' ); ?>

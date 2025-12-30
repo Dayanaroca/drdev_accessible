@@ -66,22 +66,22 @@ $icon_tiktok = drdev_image('/assets/images/icons/tiktok.svg', 'TikTok', '', '', 
           ?>
       <!-- </div> -->
         <div class="hidden md:flex flex-row justify-end">
-          <div class="flex items-center justify-center bg-secondary px-6 pt-2 pb-3 border-r border-r-white rounded-bl-[0.625rem]">
+          <div class="header-blue flex items-center justify-center bg-secondary px-6 pt-2 pb-3 border-r border-r-white rounded-bl-[0.625rem]">
             <?php
               $logo = drdev_image('/assets/images/icons/support_agent.svg', 'Te ayudamos', '', '', '24', '24', 'Te ayudamos');
-              $text_link = esc_attr__( '¿Te ayudamos?', 'drdevsalaprensa' );
+              $text_link = esc_attr__( '¿Te ayudamos?', 'drdevcustomlanguage' );
               $url_contacto = esc_url( home_url( '/contacto/' ) );
               echo drdev_link('text-white text-sm font-semibold tracking-[0.0225rem]', $text_link, $url_contacto, '', '','',$logo);
             ?>
           </div>
-          <div class="flex items-center justify-center bg-secondary px-6 py-3 border-r border-r-white">
+          <div class="header-blue flex items-center justify-center bg-secondary px-6 py-3 border-r border-r-white">
             <?php
-              $text_link = esc_attr__( 'Quienes somos', 'drdevsalaprensa' );
-              $url_contacto = esc_url( home_url( '/quienes-somos/' ) );
+              $text_link = esc_attr__( 'Quienes somos', 'drdevcustomlanguage' );
+              $url_contacto = esc_url( home_url( '/sobre-nosotros/' ) );
               echo drdev_link('text-white text-sm font-semibold tracking-[0.0225rem]', $text_link, $url_contacto, '', '','','');
             ?>
           </div>
-          <div class="flex items-center justify-center bg-secondary px-6 py-3">
+          <div class="header-blue flex items-center justify-center bg-secondary px-6 py-3">
             <?php
              echo do_shortcode('[wpml_language_selector_widget]');
             ?>
@@ -92,7 +92,7 @@ $icon_tiktok = drdev_image('/assets/images/icons/tiktok.svg', 'TikTok', '', '', 
               <?php
                 wp_nav_menu([
                     'theme_location' => 'primary',
-                    'menu_class'     => 'flex flex-row gap-12 text-base font-semibold text-baseblack uppercase tracking-wide',
+                    'menu_class'     => 'flex flex-row items-center justify-center gap-12 text-base font-semibold text-baseblack uppercase tracking-wide',
                     'fallback_cb'    => false, 
                     'walker'         => new Drdev_Custom_Menu_Walker(),
                 ]);

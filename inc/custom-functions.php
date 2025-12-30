@@ -166,3 +166,178 @@ add_action('customize_register', 'drdev_customize_register');
  * To prevent CF7 from inserting p and br
  */
 add_filter('wpcf7_autop_or_not', '__return_false');
+
+function drdev_add_duplicate_button($actions, $post) {
+
+    if ($post->post_type !== 'viajes') {
+        return $actions;
+    }
+
+    if (!current_user_can('edit_post', $post->ID)) {
+        return $actions;
+    }
+
+    $url = wp_nonce_url(
+        admin_url('admin-ajax.php?action=drdev_duplicate_post&post_id=' . $post->ID),
+        'drdev_duplicate_post_' . $post->ID
+    );
+
+    $actions['duplicate'] = '<a href="' . esc_url($url) . '">' . esc_html__('Duplicar', 'drdevcustomlanguage') . '</a>';
+
+    return $actions;
+}
+add_filter('post_row_actions', 'drdev_add_duplicate_button', 10, 2);
+function drdev_duplicate_post_logic($post_id) {
+
+    $post = get_post($post_id);
+
+    if (!$post || $post->post_type !== 'viajes') {
+        return false;
+    }
+
+    if (!current_user_can('edit_post', $post_id)) {
+        return false;
+    }
+
+    $new_post_id = wp_insert_post([
+        'post_title'   => $post->post_title . ' (Copia)',
+        'post_content' => $post->post_content,
+        'post_status'  => 'draft',
+        'post_type'    => $post->post_type,
+        'post_author'  => get_current_user_id(),
+    ]);
+
+    if (is_wp_error($new_post_id)) {
+        return false;
+    }
+
+    /* ---------
+     * Metadatos (excluyendo internos)
+     * --------- */
+    $meta = get_post_meta($post_id);
+
+    foreach ($meta as $key => $values) {
+        if (str_starts_with($key, '_')) {
+            continue;
+        }
+
+        foreach ($values as $value) {
+            add_post_meta($new_post_id, $key, maybe_unserialize($value));
+        }
+    }
+
+    /* ---------
+     * Taxonomías
+     * --------- */
+    $taxonomies = get_object_taxonomies($post->post_type);
+
+    foreach ($taxonomies as $taxonomy) {
+        $terms = wp_get_object_terms($post_id, $taxonomy, ['fields' => 'ids']);
+        wp_set_object_terms($new_post_id, $terms, $taxonomy);
+    }
+
+    /* ---------
+     * Imagen destacada
+     * --------- */
+    $thumbnail_id = get_post_thumbnail_id($post_id);
+    if ($thumbnail_id) {
+        set_post_thumbnail($new_post_id, $thumbnail_id);
+    }
+
+    return $new_post_id;
+}
+function drdev_handle_duplicate_ajax() {
+
+    $post_id = isset($_GET['post_id']) ? absint($_GET['post_id']) : 0;
+
+    if (!$post_id) {
+        wp_die('Invalid post ID');
+    }
+
+    if (!wp_verify_nonce($_GET['_wpnonce'], 'drdev_duplicate_post_' . $post_id)) {
+        wp_die('Security check failed');
+    }
+
+    $new_post_id = drdev_duplicate_post_logic($post_id);
+
+    if ($new_post_id) {
+        wp_safe_redirect(
+            admin_url('post.php?action=edit&post=' . $new_post_id)
+        );
+        exit;
+    }
+
+    wp_die('Error duplicating post');
+}
+add_action('wp_ajax_drdev_duplicate_post', 'drdev_handle_duplicate_ajax');
+
+
+function drdev_guardar_meses_viaje() {
+    $destinos = [
+        'cuba' => [
+            'enero'       => 'bueno',
+            'febrero'     => 'regular',
+            'marzo'       => 'muy_malo',
+            'abril'       => 'bueno',
+            'mayo'        => 'malo',
+            'junio'       => 'regular',
+            'julio'       => 'bueno',
+            'agosto'      => 'muy_malo',
+            'septiembre'  => 'regular',
+            'octubre'     => 'bueno',
+            'noviembre'   => 'malo',
+            'diciembre'   => 'bueno',
+        ],
+        'florida' => [
+            'enero'       => 'regular',
+            'febrero'     => 'bueno',
+            'marzo'       => 'bueno',
+            'abril'       => 'malo',
+            'mayo'        => 'malo',
+            'junio'       => 'muy_malo',
+            'julio'       => 'malo',
+            'agosto'      => 'malo',
+            'septiembre'  => 'regular',
+            'octubre'     => 'bueno',
+            'noviembre'   => 'bueno',
+            'diciembre'   => 'bueno',
+        ],
+        'mexico' => [
+            'enero'       => 'bueno',
+            'febrero'     => 'bueno',
+            'marzo'       => 'regular',
+            'abril'       => 'regular',
+            'mayo'        => 'malo',
+            'junio'       => 'malo',
+            'julio'       => 'regular',
+            'agosto'      => 'malo',
+            'septiembre'  => 'muy_malo',
+            'octubre'     => 'regular',
+            'noviembre'   => 'bueno',
+            'diciembre'   => 'bueno',
+        ],
+        'rep-dominicana' => [
+            'enero'       => 'bueno',
+            'febrero'     => 'bueno',
+            'marzo'       => 'bueno',
+            'abril'       => 'bueno',
+            'mayo'        => 'regular',
+            'junio'       => 'malo',
+            'julio'       => 'malo',
+            'agosto'      => 'malo',
+            'septiembre'  => 'muy_malo',
+            'octubre'     => 'regular',
+            'noviembre'   => 'bueno',
+            'diciembre'   => 'bueno',
+        ],
+    ];
+
+    foreach ( $destinos as $slug => $meses ) {
+        $destino = get_term_by( 'slug', $slug, 'destino' );
+        if ( $destino ) {
+            update_term_meta( $destino->term_id, 'meses_viaje', $meses );
+        }
+    }
+}
+// Se ejecuta solo una vez al activar el tema
+add_action( 'after_switch_theme', 'drdev_guardar_meses_viaje' );

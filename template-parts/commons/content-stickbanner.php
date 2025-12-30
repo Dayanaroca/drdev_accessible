@@ -4,6 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  */
+if ( ! defined( 'ABSPATH' ) ) exit;
   ?>
 <section aria-label="<?php esc_attr_e( 'Eslogan de turismo accesible', 'drdevcustomlanguage' ); ?>" class="w-full">
     <div class="bg-primary w-full py-2">

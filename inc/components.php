@@ -122,7 +122,7 @@ function drdev_image($src, $alt, $class = '', $id = '', $width = '', $height = '
     );
 }
 
-function drdev_inline_svg($path, $class = '', $id = '', $width = '', $height = '') {
+function drdev_inline_svg($path, $class = '', $id = '', $width = '', $height = '', $extra_attrs = '') {
     $full_path = get_template_directory() . $path;
 
     if (!file_exists($full_path)) {
@@ -139,6 +139,7 @@ function drdev_inline_svg($path, $class = '', $id = '', $width = '', $height = '
         if ($id)     $attributes .= ' id="' . esc_attr($id) . '"';
         if ($width)  $attributes .= ' width="' . intval($width) . '"';
         if ($height) $attributes .= ' height="' . intval($height) . '"';
+        if ($extra_attrs) $attributes .= ' height="' . intval($extra_attrs) . '"';
 
         $svg = preg_replace('/<svg\b([^>]*)>/', '<svg$1' . $attributes . '>', $svg, 1);
     }

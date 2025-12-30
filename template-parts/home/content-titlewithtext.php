@@ -5,7 +5,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  */
   ?>
-<section class="accesible-seccion font-sans w-full max-w-screen-lg mx-auto px-2.5 lg:px-0 mb-6 lg:mb-14">
+<section class="accesible-seccion font-sans w-full max-w-screen-lg mx-auto px-2.5 lg:px-0">
     <h2 class="font-bold text-2xl lg:text-4xl text-center mb-5">
         <?php esc_html_e( 'La magia de viajar sin barreras, a solo un clic', 'drdevcustomlanguage' ); ?>
     </h2>

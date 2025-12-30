@@ -13,13 +13,14 @@ if (!defined('ABSPATH')) exit;
  *
  */
 
-get_header(''); ?>
+get_header(); ?>
 
-<main class="w-full mx-0">
-    <?php     
-        //get_template_part('template-parts/content-hero_ylvillage');
-
+<main class="accesible-seccion flex flex-col gap-12 w-full pt-28 pb-14">
+    <?php   
+        get_template_part('template-parts/commons/content-stickbanner'); 
+        get_template_part( 'template-parts/commons/content', 'cf7Gen'); 
+        get_template_part('template-parts/commons/content-contactcita');
     ?>    
 </main>
 
-<?php get_footer(''); ?>
+<?php get_footer(); ?>

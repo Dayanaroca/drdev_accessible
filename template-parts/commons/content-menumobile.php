@@ -32,11 +32,11 @@
     <div class="flex flex-col gap-4">
         <?php
             $logo = drdev_image('/assets/images/icons/support_agentblack.svg', 'Te ayudamos', '', '', '20', '20', 'Te ayudamos');
-            $text_link = esc_attr__( '¿Te ayudamos?', 'drdevsalaprensa' );
+            $text_link = esc_attr__( '¿Te ayudamos?', 'drdevcustomlanguage' );
             $url_contacto = esc_url( home_url( '/contacto/' ) );
             echo drdev_link('text-baseblack text-sm font-semibold tracking-[0.0225rem]', $text_link,$url_contacto, '', '','',$logo);
 
-            $text_link = esc_attr__( 'Quienes somos', 'drdevsalaprensa' );
+            $text_link = esc_attr__( 'Quienes somos', 'drdevcustomlanguage' );
               $url_contacto = esc_url( home_url( '/quienes-somos/' ) );
               echo drdev_link('text-baseblack text-sm font-semibold tracking-[0.0225rem]', $text_link, $url_contacto, '', '','','');
         ?>

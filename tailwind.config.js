@@ -31,6 +31,12 @@ module.exports = {
         color13: 'rgba(249, 250, 251, 0.15)',
         color14: '#C0BEC2', 
         color15: '#E0E3EE',
+        color16: '#B9B8BB',
+        color17: '#1F2937',
+        color18: '#D2D5DA',
+        color19: 'D9D9D9',
+        color20: '#63D4EE',
+        color21: '#D9D9D9'
       }
     },
     boxShadow: {

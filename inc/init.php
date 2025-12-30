@@ -16,7 +16,7 @@ function drdev_init_theme() {
         [
             'title'    => __('Blog', 'drdevcustomlanguage'),
             'slug'     => 'blog',
-            'template' => 'archive.php'
+            'template' => 'page-blog.php'
         ],
         [
             'title'    => __('¿Te ayudamos?', 'drdevcustomlanguage'),
@@ -217,5 +217,12 @@ function drdev_init_theme() {
             }
         }
     }
+
+    // Indicar que la página "Blog" será la página de entradas
+    $blog_page = get_page_by_path('blog');
+    if ( $blog_page ) {
+        update_option('page_for_posts', $blog_page->ID);
+    }
+
 }
 add_action( 'after_switch_theme', 'drdev_init_theme' );

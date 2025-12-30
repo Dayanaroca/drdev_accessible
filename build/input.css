@@ -1,0 +1,376 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@import './fonts.css';
+
+@layer base {
+  body, p, a , span {
+    @apply font-sans;
+  }
+  p {
+    @apply text-baseblack text-lg font-medium tracking-[0.0375rem];
+  }
+  h1, h2, h3, h4, h5 {
+    @apply text-baseblack;
+  }
+  section[aria-label="Testimonios"] p {
+  all: unset; /* borra estilos globales */
+  @apply text-base text-black font-medium;
+}
+
+/* Asegura que la lista sea horizontal */
+.pagination-nav {
+    @apply flex flex-row space-x-2 items-center justify-center;
+}
+.pagination-nav li a,
+.pagination-nav li span {
+    @apply flex items-center justify-center w-10 h-10 rounded-md border border-color16  text-color16 font-medium transition-all duration-200;
+}
+.pagination-nav li a:hover {
+    @apply bg-primary text-white border-none;
+}
+
+.pagination-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.95775rem;
+    height: 2.95775rem;
+    padding: 0.92431rem;
+    border-radius: 0.27731rem;
+    border: 0.739px solid #B9B8BB;
+    background-color: #fff;
+    color: #000;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.pagination-btn:hover,
+.pagination-btn.active {
+    @apply bg-primary text-white border-none;
+}
+
+
+}
+
+@layer components {
+  .btn-primary {
+    @apply flex justify-center items-center gap-[0.66606rem]
+           rounded-lg h-12
+           bg-primary text-white
+           font-bold text-base tracking-wider
+           px-[1.96688rem] py-[0.99906rem]
+           transition-colors duration-200 ease-in-out hover:bg-hovercolor;
+  }
+  .btn-white {
+    @apply flex justify-center items-center gap-[0.66606rem]
+           rounded-lg h-12
+           bg-white text-primary
+           font-bold text-base tracking-wider
+           px-[1.96688rem] py-[0.99906rem]
+           transition-colors duration-200 ease-in-out hover:bg-hovercolor hover:text-white;
+  }
+ /* --- HERO EN MODO ALTO CONTRASTE --- */
+body.high-contrast .bg-primary,
+body.high-contrast .accesible-seccion,
+body.high-contrast .bg-home {
+  background: #000 !important; 
+}
+
+body.high-contrast .accesible-seccion-card {
+  background: #000 !important; 
+  border: 0.5px solid #fff;
+}
+
+body.high-contrast .icon-bg-rect {
+  fill: transparent !important;
+}
+
+body.high-contrast .accesible-footer {
+  background: #000 !important; 
+  border-top: 1px solid #fff;
+}
+
+body.high-contrast .site-header {
+  background: #000 !important;
+  border-bottom: 1px solid #fff !important;
+}
+
+body.high-contrast .header-blue {
+  background: #000 !important;
+  border: 1px solid #fff !important;
+} 
+
+.icon-arrow {
+    color: #000;
+}
+.sec-fac {
+    color: #0E3346; 
+}
+
+.rounded-custom {
+  border-radius: 0.625rem;
+}
+
+.max-w-screen-etg {
+  max-width: 1180px;
+}
+
+.border-card {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 5px 5px;
+  border-width: 0.5px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.12);
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.high-contrast h1,
+body.high-contrast h2,
+body.high-contrast h3,
+body.high-contrast p,
+body.high-contrast span,
+body.high-contrast .text-white,
+body.high-contrast time,
+body.high-contrast label,
+body.high-contrast .icon-arrow, 
+body.high-contrast .sec-fac  {
+  color: #fff !important; 
+}
+body.high-contrast .icon-svg path {
+  fill: #fff !important;
+}
+body.high-contrast img.imgcustom {
+  border-radius: 0.5rem !important;
+  background-color: #fff !important;
+}
+body.high-contrast ul li::marker {
+  color: #fff;
+}
+
+body.high-contrast .hotel {
+  --tw-prose-body: #ffffff;
+  --tw-prose-headings: #ffffff;
+  --tw-prose-bold: #ffffff;
+  --tw-prose-links: #00ffff;
+  color: #ffffff;
+}
+
+body.high-contrast .faq-item {
+  border-bottom: 1px solid #fff !important; 
+}
+
+body.high-contrast a {
+  color: #fff !important;
+  text-decoration: underline !important;
+}
+
+
+  body.high-contrast img {
+    filter: brightness(0.8) contrast(1.5);
+  }
+
+  body.high-contrast button,
+  body.high-contrast input,
+  body.high-contrast textarea,
+  body.high-contrast select {
+    background: #111 !important;
+    color: #fff !important;
+    border: 2px solid #fff !important;
+  }
+  .bg-home {
+    background-image: url('../images/home/bg-home.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  .bg-yudith {
+    background-image: url('../images/commons/bg-yudith.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  /* -------------------------
+   Controles (flechas + paginación)
+   ------------------------- */
+  .swiper-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    position: relative;
+  }
+
+  /* Forzamos las flechas dentro del contenedor inferior, no flotantes */
+  .swiper-controls .swiper-button-prev,
+  .swiper-controls .swiper-button-next {
+    position: static !important;
+    margin: 0 !important;
+    transform: none !important;
+    width: auto !important;
+    height: auto !important;
+    padding: 0.7rem;
+  }
+
+  /* Botón circular */
+  .custom-arrow {
+    width: 44px;
+    height: 44px;
+    border-radius: 9999px;
+    background: #f68b00;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    cursor: pointer;
+    padding: 0;
+    overflow: hidden;
+    transition: transform .18s ease, background .18s ease;
+  }
+
+  /* Hover */
+  .custom-arrow:hover {
+    background: #ff9c1a;
+    transform: scale(1.08);
+  }
+
+  /* Forzamos tamaño del SVG interno y centrado */
+  .custom-arrow svg {
+    width: 18px;
+    height: 18px;
+    display: block;
+  }
+
+  /* Si usas el mismo SVG para next y prev, rotamos el de next */
+  .swiper-button-next.custom-arrow svg {
+    transform: rotate(180deg);
+  }
+
+  /* Ocultamos pseudoelementos por defecto de Swiper */
+  .swiper-button-prev:after, .swiper-button-next:after { 
+    display: none; 
+  }  
+
+  .testimonios-container {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .testimoniosSwiper {
+    width: 100%;
+    padding: 10px 0 30px;
+  }
+
+  .testimoniosSwiper .swiper-wrapper {
+    align-items: stretch;
+  }
+
+  :root { 
+    --primary: #f68b00; 
+  }
+
+  .testimonios-container .swiper-pagination {
+    display: flex !important;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    position: static !important;
+    width: auto !important;
+  }
+
+  /* default bullets (white with border primary) */
+  .testimonios-container .swiper-pagination .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background: #ffffff;
+    border: 1px solid var(--primary);
+    box-sizing: border-box;
+    border-radius: 9999px;
+    opacity: 1;
+    transition: transform .18s ease, background .18s ease;
+  }
+
+  /* active bullet: filled with primary */
+  .testimonios-container .swiper-pagination .swiper-pagination-bullet-active {
+    background: var(--primary);
+    border-color: var(--primary);
+    transform: scale(1.15);
+    box-shadow: 0 6px 18px rgba(246,139,0,0.18);
+  }
+
+  .testimoniosSwiper .swiper-slide {
+    box-sizing: border-box;
+    height: auto;
+    opacity: 0.4;
+    transition: opacity 0.3s ease;
+  }
+  /* Slide activo - sin opacidad */
+  .testimoniosSwiper .swiper-slide-active,
+  .testimoniosSwiper .swiper-slide-duplicate-active {
+    opacity: 1;
+  }
+  .descripcion {
+    display: block;
+  }
+
+  .descripcion > * + * {
+    margin-top: 1.25rem;
+  }
+
+  .descripcion h2 {
+    color: #0B0A0A;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.075rem;
+  }
+
+  .descripcion p {
+    color: #0B0A0A;
+    font-size: 1.125rem;
+    font-weight: 500;
+    letter-spacing: 0.05rem;
+    line-height: 1.6;
+  }
+
+  .descripcion img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0.625rem;
+  }
+
+  .descripcion .wp-block-columns.is-layout-flex.wp-block-columns-is-layout-flex {
+    gap: 1.125rem;
+  }
+
+  .hotel p {
+    @apply text-baseblack text-base font-medium;
+  }
+   input.name, input.date, input.media, input.programtype, input.email, input.phone, textarea.message, select.media {
+    @apply w-full bg-color8 rounded-[5px] border border-color9 p-3 focus:ring-2 focus:ring-[#f68b00] focus:outline-none;
+  }
+  .wpcf7-form p.formtextp
+  {
+    @apply text-color3 text-sm font-semibold mb-3 md:mb-0;
+  }
+  .wpcf7-form p {
+    @apply text-base font-medium;
+  }
+  input.btn {
+    @apply btn-primary leading-none;
+  }
+  textarea {
+    resize: none !important;
+  }
+
+  .wpcf7-acceptance input[type="checkbox"] {
+    accent-color: #149CBC; /* tu color corporativo */
+  }
+
+
+
+}
