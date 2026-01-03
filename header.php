@@ -81,6 +81,61 @@ $icon_tiktok = drdev_image('/assets/images/icons/tiktok.svg', 'TikTok', '', '', 
               echo drdev_link('text-white text-sm font-semibold tracking-[0.0225rem]', $text_link, $url_contacto, '', '','','');
             ?>
           </div>
+          <div class="header-blue flex items-center justify-center bg-secondary px-6 py-3 border-r border-r-white">
+            <div class="relative">
+
+    <!-- BOTÓN -->
+    <button
+        id="currency-toggle"
+        class="flex items-center gap-2 text-white focus:outline-none focus:ring-2 focus:ring-white"
+        aria-haspopup="menu"
+        aria-expanded="false"
+    >
+        <img src="/wp-content/themes/drdevaccesible/assets/images/icons/eur.svg" alt="" class="w-5 h-5" aria-hidden="true">
+        <span class="font-medium">EUR</span>
+        <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path d="M5.5 7.5l4.5 4.5 4.5-4.5" />
+        </svg>
+    </button>
+
+    <!-- MENÚ -->
+    <div
+        id="currency-menu"
+        class="hidden absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-xl z-50"
+        role="menu"
+        aria-labelledby="currency-toggle"
+    >
+        <ul class="py-2">
+            <li>
+                <button
+                    class="flex items-center gap-3 w-full px-4 py-2 text-left hover:bg-gray-100"
+                    role="menuitemradio"
+                    aria-checked="true"
+                    data-currency="EUR"
+                >
+                    <img src="/wp-content/themes/drdevaccesible/assets/images/icons/eur.svg" alt="" class="w-5 h-5" aria-hidden="true">
+                    <span>EUR</span>
+                </button>
+            </li>
+
+            <li>
+                <button
+                    class="flex items-center gap-3 w-full px-4 py-2 text-left hover:bg-gray-100"
+                    role="menuitemradio"
+                    aria-checked="false"
+                    data-currency="USD">
+                    <img src="/wp-content/themes/drdevaccesible/assets/images/icons/usd.svg" alt="" class="w-5 h-5" aria-hidden="true">
+                    <span>USD</span>
+                </button>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+
+          <p id="currency-status" class="sr-only" aria-live="polite"></p>
+          </div>
           <div class="header-blue flex items-center justify-center bg-secondary px-6 py-3">
             <?php
              echo do_shortcode('[wpml_language_selector_widget]');

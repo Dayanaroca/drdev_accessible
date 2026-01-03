@@ -27,8 +27,8 @@ $next_svg = drdev_inline_svg('/assets/images/commons/next.svg', '', '', '20', '2
                 data-posts-per-page="<?php echo esc_attr($per_page); ?>"
                 data-template="<?php echo esc_attr($template); ?>"
                 data-target="<?php echo esc_attr($target); ?>"
-                data-tax-query="<?php echo esc_attr( wp_json_encode( $query->get('tax_query') ) ); ?>"
->
+                data-tax-query="<?php echo esc_attr( wp_json_encode( $query->get('tax_query') ) ); ?>">
+                <span class="sr-only">Anterior</span>
             <?php echo $prev_svg; ?>
         </button>
     <?php endif; ?>
@@ -55,8 +55,8 @@ $next_svg = drdev_inline_svg('/assets/images/commons/next.svg', '', '', '20', '2
                 data-posts-per-page="<?php echo esc_attr($per_page); ?>"
                 data-template="<?php echo esc_attr($template); ?>"
                 data-target="<?php echo esc_attr($target); ?>"
-                data-tax-query="<?php echo esc_attr( wp_json_encode( $query->get('tax_query') ) ); ?>"
->
+                data-tax-query="<?php echo esc_attr( wp_json_encode( $query->get('tax_query') ) ); ?>">
+                <span class="sr-only">Siguiente</span>
             <?php echo $next_svg; ?>
         </button>
     <?php endif; ?>

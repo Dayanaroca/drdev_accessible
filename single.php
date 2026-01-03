@@ -150,8 +150,8 @@ if ( ! empty( $categories ) ) {
 
                     // ---------- datos para el template ----------
                     $thumbnail_url  = get_the_post_thumbnail_url( get_the_ID(), 'large' );
-                    $published_date = get_the_date( 'c' );
-                    $visible_date   = get_the_date();
+                    $published_date = get_the_date('d/m/Y'); 
+                    $visible_date   = get_the_date('d/m/Y'); 
                     $excerpt        = get_the_excerpt();
                     $author_name    = get_the_author();
 
@@ -198,9 +198,120 @@ if ( ! empty( $categories ) ) {
 }
 ?>
 
-
     <?php get_template_part('template-parts/commons/content-contactcita'); ?>
 
+    <?php $categories = get_the_terms( get_the_ID(), 'destino' ); 
+        if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
+            $term = $categories[0]; // 
+            $meses_viaje = get_term_meta( $term->term_id, 'meses_viaje', true );
+        } else {
+            $meses_viaje = [];
+        }
+
+            if ( ! empty( $meses_viaje ) ) :
+
+                $icons = [
+                    'bueno'     => '/assets/images/icons/happy.svg',
+                    'regular'   => '/assets/images/icons/neutral.svg',
+                    'malo'      => '/assets/images/icons/sad.svg',
+                    'muy_malo'  => '/assets/images/icons/very-sad.svg',
+                ];
+
+                $meses_abreviados = [
+                    'enero'      => 'ENE',
+                    'febrero'    => 'FEB',
+                    'marzo'      => 'MAR',
+                    'abril'      => 'ABR',
+                    'mayo'       => 'MAY',
+                    'junio'      => 'JUN',
+                    'julio'      => 'JUL',
+                    'agosto'     => 'AGO',
+                    'septiembre' => 'SEP',
+                    'octubre'    => 'OCT',
+                    'noviembre'  => 'NOV',
+                    'diciembre'  => 'DIC',
+                ];
+            ?>
+            <section class="max-w-screen-etg mx-auto px-2.5 lg:px-0">
+                <h2 class="font-bold text-2xl lg:text-3xl text-black mb-6 text-center">
+                    <?php esc_html_e( 'Mejor época para viajar', 'drdevcustomlanguage' ); ?>
+                </h2>
+
+                <div class="grid grid-cols-6 lg:grid-cols-12 gap-4">
+                    <?php foreach ( $meses_viaje as $mes => $valoracion ) : 
+
+                        $mes_abrev = $meses_abreviados[ $mes ] ?? strtoupper( substr( $mes, 0, 3 ) );
+                    ?>
+                        <div class="flex flex-col gap-2 items-center text-center">
+                            <span class="text-base font-semibold uppercase">
+                                <?php echo esc_html( $mes_abrev ); ?>
+                            </span>
+
+                            <?php if ( ! empty( $icons[ $valoracion ] ) ) : ?>
+                                <img 
+                                    src="<?php echo esc_url( get_template_directory_uri() . $icons[ $valoracion ] ); ?>" 
+                                    alt="<?php echo esc_attr( $valoracion ); ?>" 
+                                    class="w-20 h-20 mb-1"
+                                >
+                            <?php endif; ?>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-6 place-items-center">
+                    <div class="flex flex-row gap-2">
+                        <div class="w-6 h-6 rounded-full bg-primary"></div>
+                        <span class="text-sm lg:text-lg font-bold"><?php esc_html_e( 'Muy recomendado', 'drdevcustomlanguage' ); ?></span>
+                    </div>
+                    <div class="flex flex-row gap-2">
+                        <div class="w-6 h-6 rounded-full bg-secondary"></div>
+                        <span class="text-sm lg:text-lg font-bold"><?php esc_html_e( 'Recomendado', 'drdevcustomlanguage' ); ?></span>
+                    </div>
+                    <div class="flex flex-row gap-2">
+                        <div class="w-6 h-6 rounded-full bg-color20"></div>
+                        <span class="text-sm lg:text-lg font-bold"><?php esc_html_e( 'No es mala opción', 'drdevcustomlanguage' ); ?></span>
+                    </div>
+                    <div class="flex flex-row gap-2">
+                        <div class="w-6 h-6 rounded-full bg-color21"></div>
+                        <span class="text-sm lg:text-lg font-bold"><?php esc_html_e( 'No es mala opción', 'drdevcustomlanguage' ); ?></span>
+                    </div>
+                </div>
+            </section>
+            <?php endif; ?>
+
+    <section class="max-w-screen-etg mx-2.5 lg:mx-auto" >
+         <?php if ( comments_open() || get_comments_number() ) :
+           
+            comment_form([
+                'title_reply'          => __('Deja un comentario', 'drdevcustomlanguage'),
+                'title_reply_before'   => '<h2 class="text-5xl font-bold mb-4">',
+                'title_reply_after'    => '</h2>',
+                'comment_notes_before' => '<p class="text-base text-baseblack font-bold mb-2">' . __('Tu dirección de correo electrónico no será publicada. Los campos obligatorios están marcados con un *.', 'drdevcustomlanguage') . '</p>',
+                'comment_field'        => '<p class="mb-4"><label class="block mb-1 style-comment">' . __('Comentario*', 'drdevcustomlanguage') . '</label><textarea id="comment" name="comment" class="w-full p-2 border rounded" rows="5" required></textarea></p>',
+                'fields'               => [
+                    'author' => '<p class="mb-4"><label class="block mb-1 style-comment">' . __('Nombre', 'drdevcustomlanguage') . '</label><input type="text" name="author" class="w-full p-2 border rounded" required></p>',
+                    'email'  => '<p class="mb-4"><label class="block mb-1 style-comment">' . __('Correo electrónico', 'drdevcustomlanguage') . '</label><input type="email" name="email" class="w-full p-2 border rounded" required></p>',
+                ],
+
+                'label_submit'         => __('Enviar comentario', 'drdevcustomlanguage'),
+            ]);
+
+
+        endif; ?>   
+        <?php
+        if ( have_comments() ) : ?>
+            <h3 class="text-xl font-bold mb-4"><?php comments_number(__('No hay comentarios', 'drdevcustomlanguage'), __('1 comentario', 'drdevcustomlanguage'), __('% comentarios', 'drdevcustomlanguage')); ?></h3>
+            <ul class="space-y-4">
+                <?php
+                wp_list_comments([
+                    'style'       => 'ul',
+                    'short_ping'  => true,
+                    'avatar_size' => 48,
+                ]);
+                ?>
+            </ul>
+        <?php endif; ?>                     
+    </section>                    
+  
 </main>
 <script>
 document.addEventListener('DOMContentLoaded', function () {

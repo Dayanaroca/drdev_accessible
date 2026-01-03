@@ -1014,6 +1014,43 @@ input.btn {
 textarea {
     resize: none !important;
   }
+body.high-contrast .comment-form input#submit {
+  background: #000; 
+}
+
+body.high-contrast .comment-form input#submit  {
+  color: #fff; 
+}
+.comment-form input#submit {
+  display: flex;
+  height: 3rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.66606rem;
+  border-radius: 0.5rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(251 133 0 / var(--tw-bg-opacity, 1));
+  padding-left: 1.96688rem;
+  padding-right: 1.96688rem;
+  padding-top: 0.99906rem;
+  padding-bottom: 0.99906rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.comment-form input#submit:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(220 117 0 / var(--tw-bg-opacity, 1));
+}
+.comment-form input#submit {
+  line-height: 1.25rem;
+}
 .sr-only {
   position: absolute;
   width: 1px;
@@ -1247,6 +1284,9 @@ textarea {
 .h-48 {
   height: 12rem;
 }
+.h-5 {
+  height: 1.25rem;
+}
 .h-56 {
   height: 14rem;
 }
@@ -1303,6 +1343,15 @@ textarea {
 }
 .w-20 {
   width: 5rem;
+}
+.w-4 {
+  width: 1rem;
+}
+.w-48 {
+  width: 12rem;
+}
+.w-5 {
+  width: 1.25rem;
 }
 .w-6 {
   width: 1.5rem;
@@ -1695,6 +1744,14 @@ textarea {
 .bg-color13 {
   background-color: rgba(249, 250, 251, 0.15);
 }
+.bg-color20 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(99 212 238 / var(--tw-bg-opacity, 1));
+}
+.bg-color21 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(217 217 217 / var(--tw-bg-opacity, 1));
+}
 .bg-color3 {
   --tw-bg-opacity: 1;
   background-color: rgb(14 51 70 / var(--tw-bg-opacity, 1));
@@ -1714,14 +1771,6 @@ textarea {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
-}
-.bg-color20 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(99 212 238 / var(--tw-bg-opacity, 1));
-}
-.bg-color21 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(217 217 217 / var(--tw-bg-opacity, 1));
 }
 .object-contain {
   -o-object-fit: contain;
@@ -2097,24 +2146,35 @@ textarea {
 
 @import './fonts.css';
 
+
+.hover\:bg-gray-100:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1));
+}
+
+
 .hover\:bg-gray-200:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity, 1));
 }
+
 
 .hover\:bg-secondary:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(20 156 188 / var(--tw-bg-opacity, 1));
 }
 
+
 .hover\:underline:hover {
   text-decoration-line: underline;
 }
+
 
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
+
 
 .focus\:ring-2:focus {
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
@@ -2122,9 +2182,17 @@ textarea {
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
 
+
+.focus\:ring-white:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(255 255 255 / var(--tw-ring-opacity, 1));
+}
+
+
 .focus\:ring-white\/50:focus {
   --tw-ring-color: rgb(255 255 255 / 0.5);
 }
+
 
 .focus-visible\:ring-2:focus-visible {
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
@@ -2132,32 +2200,39 @@ textarea {
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
 
+
 .focus-visible\:ring-primary:focus-visible {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(251 133 0 / var(--tw-ring-opacity, 1));
 }
 
+
 .focus-visible\:ring-offset-2:focus-visible {
   --tw-ring-offset-width: 2px;
 }
 
+
 .group:hover .group-hover\:visible {
   visibility: visible;
 }
+
 
 .group:hover .group-hover\:translate-y-0 {
   --tw-translate-y: 0px;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+
 .group:hover .group-hover\:rotate-180 {
   --tw-rotate: 180deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+
 .group:hover .group-hover\:opacity-100 {
   opacity: 1;
 }
+
 
 .group:hover .group-hover\:shadow-\[0_10px_25px_rgba\(0\2c 0\2c 0\2c 0\.25\)\] {
   --tw-shadow: 0 10px 25px rgba(0,0,0,0.25);
@@ -2165,11 +2240,13 @@ textarea {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+
 .group:focus-visible .group-focus-visible\:shadow-\[0_10px_25px_rgba\(0\2c 0\2c 0\2c 0\.25\)\] {
   --tw-shadow: 0 10px 25px rgba(0,0,0,0.25);
   --tw-shadow-colored: 0 10px 25px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
+
 
 @media (min-width: 640px) {
 
@@ -2177,6 +2254,7 @@ textarea {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
 
 @media (min-width: 768px) {
 
@@ -2301,6 +2379,7 @@ textarea {
     text-align: right;
   }
 }
+
 
 @media (min-width: 1024px) {
 
@@ -2566,10 +2645,12 @@ textarea {
   }
 }
 
+
 .\[\&\>p\]\:text-xl>p {
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
+
 
 .\[\&\>p\]\:text-color5>p {
   --tw-text-opacity: 1;

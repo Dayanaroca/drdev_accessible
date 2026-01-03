@@ -315,7 +315,7 @@ global $drdev_global;
                                         'iconSize'   => 28,
                                     ]); ?> 
                                 </div>
-                                <a href="https://wa.me/<?php echo esc_attr($drdev_global['whatsapp']); ?>" class="text-white text-[0.88888rem] font-normal flex flex-row items-center justify-center gap-2" rel="noopener noreferrer" aria-label="se abre en una nueva pestaña">
+                                <a href="https://wa.me/<?php echo esc_attr($drdev_global['whatsapp']); ?>" class="text-white text-[0.88888rem] font-normal flex flex-row items-center justify-center gap-2" rel="noopener noreferrer">
                                     <?php 
                                     echo drdev_image_decorative('/assets/images/icons/whatsapp-white.svg', '', '', '20', '20'); 
                                     esc_html_e( 'Contacto por WhatsApp', 'drdevcustomlanguage' ); 

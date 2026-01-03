@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
   <div class="trips-slider swiper">
     <div class="swiper-wrapper">
       <div class="swiper-slide">
-        <a href="<?php echo esc_url( home_url( '/destino/rep-dominicana/' ) ); ?>" class="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-off focus-visible:ring-primary" aria-labelledby="destino-rd">
+        <a href="<?php echo esc_url( home_url( '/destino/rep-dominicana/' ) ); ?>" class="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-off focus-visible:ring-primary">
          <article class="relative rounded-[0.9375rem] overflow-hidden transition-shadow duration-300 group-hover:shadow-[0_10px_25px_rgba(0,0,0,0.25)] group-focus-visible:shadow-[0_10px_25px_rgba(0,0,0,0.25)]">
             <h3 id="destino-rd" class="sr-only">
               <?php esc_html_e( 'Destino: República Dominicana', 'drdevcustomlanguage' ); ?>
@@ -53,9 +53,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
       <div class="swiper-slide">
         <a
           href="<?php echo esc_url( home_url( '/destino/mexico/' ) ); ?>"
-          class="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary"
-          aria-labelledby="destino-mexico"
-        >
+          class="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary">
           <article class="relative rounded-[0.9375rem] overflow-hidden transition-shadow duration-300 group-hover:shadow-[0_10px_25px_rgba(0,0,0,0.25)] group-focus-visible:shadow-[0_10px_25px_rgba(0,0,0,0.25)]">
             <h3 id="destino-mexico" class="sr-only">
               <?php esc_html_e( 'Destino: México', 'drdevcustomlanguage' ); ?>
@@ -93,9 +91,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
       <!-- Card: Cuba -->
       <div class="swiper-slide">
         <a href="<?php echo esc_url( home_url( '/destino/cuba/' ) ); ?>"
-          class="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary"
-          aria-labelledby="destino-cuba"
-        >
+          class="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary">
           <article class="relative rounded-[0.9375rem] overflow-hidden transition-shadow duration-300 group-hover:shadow-[0_10px_25px_rgba(0,0,0,0.25)] group-focus-visible:shadow-[0_10px_25px_rgba(0,0,0,0.25)]">
             <h3 id="destino-cuba" class="sr-only">
               <?php esc_html_e( 'Destino: Cuba', 'drdevcustomlanguage' ); ?>
@@ -133,9 +129,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
       <!-- Card: Estados Unidos -->
       <div class="swiper-slide">
         <a href="<?php echo esc_url( home_url( '/destino/florida/' ) ); ?>"
-          class="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary"
-          aria-labelledby="destino-eeuu"
-        >
+          class="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary">
           <article class="relative rounded-[0.9375rem] overflow-hidden transition-shadow duration-300 group-hover:shadow-[0_10px_25px_rgba(0,0,0,0.25)] group-focus-visible:shadow-[0_10px_25px_rgba(0,0,0,0.25)]">
             <h3 id="destino-eeuu" class="sr-only">
               <?php esc_html_e( 'Destino: Estados Unidos', 'drdevcustomlanguage' ); ?>

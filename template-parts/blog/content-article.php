@@ -2,7 +2,7 @@
 if (!defined('ABSPATH')) exit;
 ?>
 
-<section aria-labelledby="blog-title" class="accesible-seccion w-full max-w-screen-xl mx-auto px-2.5 lg:px-0">
+<section aria-labelledby="blog-title" class="accesible-seccion w-full max-w-screen-etg mx-auto px-2.5 lg:px-0">
     <h2 id="blog-title" class="font-bold text-4xl lg:text-4xl text-left mb-5">
         <?php esc_html_e( 'Artículos', 'drdevcustomlanguage' ); ?>
     </h2>

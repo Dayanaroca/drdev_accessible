@@ -366,10 +366,10 @@ body.high-contrast a {
   textarea {
     resize: none !important;
   }
-
-  .wpcf7-acceptance input[type="checkbox"] {
-    accent-color: #149CBC; /* tu color corporativo */
+  .comment-form input#submit {
+    @apply btn-primary leading-5
   }
+  
 
 
 

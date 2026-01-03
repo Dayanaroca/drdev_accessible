@@ -8,3 +8,15 @@ Tested up to: 6.5
 License: GNU General Public License v2 or later
 Text Domain: drdevcustomlanguage
 */
+span.wpcf7-list-item-label {
+    font-weight: 700 !important;
+    cursor: pointer;
+    padding-left: 8px !important;
+}
+.wpcf7-acceptance input[type="checkbox"] {
+    accent-color: #149CBC; 
+  }
+.style-comment, p.comment-form-cookies-consent {
+    font-weight: 700;
+    font-size: 1rem;
+}

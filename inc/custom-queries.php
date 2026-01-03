@@ -103,7 +103,7 @@ function drdev_register_cpt() {
         'menu_name'         => __('Destinos', 'drdevcustomlanguage'),
     ];
 
-    register_taxonomy('destino', 'viajes', [
+    register_taxonomy('destino',  ['viajes', 'post'], [
         'hierarchical'      => true,
         'labels'            => $destinations,
         'show_in_rest'      => true,
@@ -227,73 +227,73 @@ function drdev_viajes_rewrite_rules() {
     );
 }
 
-add_filter( 'wpcf7_form_tag', function ( $tag ) {
+// add_filter( 'wpcf7_form_tag', function ( $tag ) {
 
-    if ( $tag['name'] !== 'program' ) {
-        return $tag;
-    }
+//     if ( $tag['name'] !== 'program' ) {
+//         return $tag;
+//     }
 
-    $destino = get_queried_object();
-    if ( empty($destino) || empty($destino->slug) ) {
-        return $tag;
-    }
+//     $destino = get_queried_object();
+//     if ( empty($destino) || empty($destino->slug) ) {
+//         return $tag;
+//     }
 
-    $groups = [
-        'programa'  => __('Programas', 'drdevcustomlanguage'),
-        'hotel'     => __('Hoteles', 'drdevcustomlanguage'),
-        'excursion' => __('Experiencias', 'drdevcustomlanguage'),
-    ];
+//     $groups = [
+//         'programa'  => __('Programas', 'drdevcustomlanguage'),
+//         'hotel'     => __('Hoteles', 'drdevcustomlanguage'),
+//         'excursion' => __('Experiencias', 'drdevcustomlanguage'),
+//     ];
 
-    $raw_values = [];
-    $labels     = [];
+//     $raw_values = [];
+//     $labels     = [];
 
-    // Placeholder
-    $raw_values[] = '';
-    $labels[]     = __('Selecciona un programa', 'drdevcustomlanguage');
+//     // Placeholder
+//     $raw_values[] = '';
+//     $labels[]     = __('Selecciona un programa', 'drdevcustomlanguage');
 
-    foreach ( $groups as $tipo_slug => $group_label ) {
+//     foreach ( $groups as $tipo_slug => $group_label ) {
 
-        $query = new WP_Query([
-            'post_type'      => 'viajes',
-            'posts_per_page' => -1,
-            'post_status'    => 'publish',
-            'tax_query'      => [
-                [
-                    'taxonomy' => 'destino',
-                    'field'    => 'slug',
-                    'terms'    => $destino->slug,
-                ],
-                [
-                    'taxonomy' => 'tipo_viaje',
-                    'field'    => 'slug',
-                    'terms'    => $tipo_slug,
-                ],
-            ],
-        ]);
+//         $query = new WP_Query([
+//             'post_type'      => 'viajes',
+//             'posts_per_page' => -1,
+//             'post_status'    => 'publish',
+//             'tax_query'      => [
+//                 [
+//                     'taxonomy' => 'destino',
+//                     'field'    => 'slug',
+//                     'terms'    => $destino->slug,
+//                 ],
+//                 [
+//                     'taxonomy' => 'tipo_viaje',
+//                     'field'    => 'slug',
+//                     'terms'    => $tipo_slug,
+//                 ],
+//             ],
+//         ]);
 
-        if ( $query->have_posts() ) {
+//         if ( $query->have_posts() ) {
 
-            // 🔹 Simulación visual de grupo (NO seleccionable)
-            $raw_values[] = '';
-            $labels[]     = '— ' . $group_label . ' —';
+//             // 🔹 Simulación visual de grupo (NO seleccionable)
+//             $raw_values[] = '';
+//             $labels[]     = '— ' . $group_label . ' —';
 
-            while ( $query->have_posts() ) {
-                $query->the_post();
+//             while ( $query->have_posts() ) {
+//                 $query->the_post();
 
-                $raw_values[] = get_the_title();
-                $labels[]     = get_the_title();
-            }
-        }
+//                 $raw_values[] = get_the_title();
+//                 $labels[]     = get_the_title();
+//             }
+//         }
 
-        wp_reset_postdata();
-    }
+//         wp_reset_postdata();
+//     }
 
-    $tag['raw_values'] = $raw_values;
-    $tag['values']     = $raw_values;
-    $tag['labels']     = $labels;
+//     $tag['raw_values'] = $raw_values;
+//     $tag['values']     = $raw_values;
+//     $tag['labels']     = $labels;
 
-    return $tag;
-});
+//     return $tag;
+// });
 
 add_filter('wpcf7_form_tag', function($tag) {
 

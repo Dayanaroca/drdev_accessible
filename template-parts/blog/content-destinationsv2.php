@@ -6,7 +6,7 @@
  */
   if ( ! defined( 'ABSPATH' ) ) exit;
   ?>
-  <section aria-label="Destinos" class="w-full max-w-screen-xl ml-2.5 lg:mx-auto gap-6">
+  <section aria-label="Destinos" class="w-full max-w-screen-etg ml-2.5 lg:mx-auto gap-6">
   <div class="trips-blog-slider swiper">
     <div class="swiper-wrapper">
       <!-- Card 1 -->

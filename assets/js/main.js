@@ -305,3 +305,109 @@ document.addEventListener('DOMContentLoaded', function() {
       <path fill-rule="evenodd" clip-rule="evenodd" d="M19 4.75C19.6558 4.75 20.1875 5.28166 20.1875 5.9375V32.0625C20.1875 32.7183 19.6558 33.25 19 33.25C18.3442 33.25 17.8125 32.7183 17.8125 32.0625V5.9375C17.8125 5.28166 18.3442 4.75 19 4.75Z" fill="currentColor"/>`;
     }
   };
+    /* ------------------------------
+  * currency
+  * ------------------------------ */
+  (function () {
+
+    const RATE_EUR_TO_USD = 1.1;
+    const STORAGE_KEY = 'currency';
+
+    const toggle = document.getElementById('currency-toggle');
+    const menu   = document.getElementById('currency-menu');
+    const items  = menu.querySelectorAll('[role="menuitemradio"]');
+    const priceElements = document.querySelectorAll('.travel-price');
+
+    function updatePrices(currency) {
+
+        priceElements.forEach(priceEl => {
+
+            const basePrice = parseFloat(priceEl.dataset.basePrice);
+            const valueEl  = priceEl.querySelector('.price-value');
+            const symbolEl = priceEl.querySelector('.price-symbol');
+
+            let price, symbol, label;
+
+            if (currency === 'USD') {
+               price = Math.round(basePrice * RATE_EUR_TO_USD);
+                symbol = '$';
+                label  = 'dólares estadounidenses';
+            } else {
+                price = Math.round(basePrice);
+                symbol = '€';
+                label  = 'euros';
+            }
+
+            valueEl.textContent  = price;
+            symbolEl.textContent = symbol;
+
+            priceEl.setAttribute('aria-label', `${price} ${label}`);
+        });
+    }
+
+    /* =========================
+       Toggle menú
+       ========================= */
+    toggle.addEventListener('click', () => {
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!expanded));
+        menu.classList.toggle('hidden');
+    });
+
+    /* =========================
+       Selección moneda
+       ========================= */
+    items.forEach(item => {
+        item.addEventListener('click', () => {
+
+            const currency = item.dataset.currency;
+
+            localStorage.setItem(STORAGE_KEY, currency);
+
+            items.forEach(i => i.setAttribute('aria-checked', 'false'));
+            item.setAttribute('aria-checked', 'true');
+
+            toggle.querySelector('span').textContent = currency;
+            toggle.querySelector('img').src =
+                `/wp-content/themes/drdevaccesible/assets/images/icons/${currency.toLowerCase()}.svg`;
+
+            toggle.setAttribute('aria-expanded', 'false');
+            menu.classList.add('hidden');
+
+            updatePrices(currency);
+        });
+    });
+
+    /* =========================
+       Escape
+       ========================= */
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') {
+            toggle.setAttribute('aria-expanded', 'false');
+            menu.classList.add('hidden');
+        }
+    });
+
+    /* =========================
+       Carga inicial
+       ========================= */
+    document.addEventListener('DOMContentLoaded', () => {
+        const savedCurrency =
+            localStorage.getItem(STORAGE_KEY) || 'EUR';
+
+        const item =
+            menu.querySelector(`[data-currency="${savedCurrency}"]`);
+
+        if (item) item.click();
+        else updatePrices('EUR');
+    });
+
+})();
+
+document.getElementById('currency-selector').addEventListener('change', function () {
+    document.getElementById('currency-status').textContent =
+        this.value === 'USD'
+            ? 'Mostrando precios en dólares estadounidenses'
+            : 'Mostrando precios en euros';
+});
+
