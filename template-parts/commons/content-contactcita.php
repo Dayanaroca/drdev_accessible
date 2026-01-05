@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
         target="_blank"
         class="btn-primary w-fit mt-5"
       >
-        Agendar cita
+      <?php esc_html_e( 'Agendar cita', 'drdevcustomlanguage' ); ?>
       </a>
     </div>
       <?= drdev_image_decorative('/assets/images/commons/semicircle.svg', 'hidden md:block object-cover object-bottom z-20 absolute bottom-0 right-5', '', '300', '158'); ?>

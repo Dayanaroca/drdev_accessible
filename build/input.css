@@ -73,6 +73,14 @@
            px-[1.96688rem] py-[0.99906rem]
            transition-colors duration-200 ease-in-out hover:bg-hovercolor hover:text-white;
   }
+  .btn-secondary {
+    @apply flex justify-center items-center gap-[0.66606rem]
+           rounded-lg h-12
+           bg-secondary text-white
+           font-bold text-base tracking-wider
+           px-[1.96688rem] py-[0.99906rem]
+           transition-colors duration-200 ease-in-out hover:bg-secondary/80 hover:text-white;
+  }
  /* --- HERO EN MODO ALTO CONTRASTE --- */
 body.high-contrast .bg-primary,
 body.high-contrast .accesible-seccion,
@@ -370,7 +378,19 @@ body.high-contrast a {
     @apply btn-primary leading-5
   }
   
-
-
+  .bg-scooter {
+    background-image: url('../images/commons/bg-scooter.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  @media (max-width: 1023px) {
+    .bg-scooter {
+        background-image: url('../images/commons/bg-scooter-mobile.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+  }
 
 }

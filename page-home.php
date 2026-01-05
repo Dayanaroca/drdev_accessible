@@ -21,6 +21,7 @@ get_header(); ?>
         get_template_part('template-parts/home/content-titlewithtext');
         get_template_part('template-parts/home/content-destinations');
         get_template_part('template-parts/home/content-imagewithtext');
+        get_template_part('template-parts/commons/content-bannerScooters');
         get_template_part('template-parts/home/content-slideblog');
         get_template_part('template-parts/commons/content-video');
         get_template_part('template-parts/home/content-testimonies');

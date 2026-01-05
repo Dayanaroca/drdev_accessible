@@ -266,14 +266,7 @@ document.addEventListener('DOMContentLoaded', function() {
     playBtn.addEventListener("click", function() {
       cover.style.display = "none";
       container.innerHTML = `
-        <iframe
-          width="100%"
-          height="500"
-          src="https://www.youtube.com/embed/ixGRkYqX5cs?autoplay=1&rel=0&modestbranding=1"
-          title="Reproductor del video sobre destinos accesibles"
-          allow="autoplay; encrypted-media"
-          allowfullscreen
-        ></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/lJqLC-C9EpQ?si=Jl2vJG4R0_XFENYh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       `;
       container.setAttribute("aria-hidden", "false");
     });

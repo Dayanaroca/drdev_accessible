@@ -150,6 +150,7 @@ get_header();
 
         <?php get_template_part('template-parts/commons/content-contactcita');
         get_template_part( 'template-parts/destinations/content', 'otherServices'); 
+        get_template_part( 'template-parts/destinations/content', 'bannerScootersV2'); 
         get_template_part( 'template-parts/destinations/content', 'scooters');        
         get_template_part( 'template-parts/commons/content', 'cf7');
         if( function_exists('render_faq_group') ) {

@@ -17,11 +17,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
     <div id="videoCover" class="relative">
         <?php
             $alt_video = esc_attr__( 'Miniatura del video sobre destinos accesibles', 'drdevcustomlanguage' );
-            echo drdev_image('/assets/images/commons/image-video.jpg', $alt_video, '', '', '828', '457', $alt_video); 
+            echo drdev_image('/assets/images/commons/image-video.png', $alt_video, '', '', '828', '457', $alt_video); 
         ?>     
         <button  type="button"  class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" id="playVideoButton" aria-label="<?php echo esc_attr__( 'Reproducir video sobre destinos accesibles', 'drdevcustomlanguage' ); ?>">
           <?= drdev_inline_svg('/assets/images/icons/play.svg','', '', '90', '90'); ?>
         </button>
     </div>
-    <div id="videoContainer" class="w-full mt-4" aria-hidden="true"></div>
+    <div id="videoContainer" class="flex items-center justify-center w-full mt-4" aria-hidden="true"></div>
 </section>

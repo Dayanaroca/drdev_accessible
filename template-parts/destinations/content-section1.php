@@ -12,10 +12,10 @@ $archive_name = single_term_title( '', false );
         <span class="text-base font-bold text-black">
             <?php esc_html_e( 'Explora nuestro destino', 'drdevcustomlanguage' ); ?>
         </span>
-        <h2 class="text-2xl font-black text-black uppercase">
+        <h2 class="text-2xl font-black text-black uppercase mb-2">
             <?php esc_html_e( 'Viajar sin límites, vivir experiencias que quedan para siempre', 'drdevcustomlanguage' ); ?>
         </h2>
-        <p class="text-xl font-medium text-black">
+        <p class="text-lg font-medium text-black">
             <?php esc_html_e( 'En', 'drdevcustomlanguage' ); ?>
             <span class="font-bold"><?php esc_html_e( 'Enjoy Travel Group', 'drdevcustomlanguage' ); ?></span>
             <?php esc_html_e( 'creemos que todos merecen la oportunidad de explorar el mundo sin límites.', 'drdevcustomlanguage' ); ?>
