@@ -79,10 +79,10 @@ get_header();
             <div class="flex flex-row gap-8">
                 <div class="flex gap-1 items-center">
                     <?php echo drdev_inline_svg('/assets/images/icons/calendar_month.svg'); ?>
-                    <time datetime="<?php echo get_the_date(); ?>"
-                        class="text-sm font-medium">
-                        <?php echo get_the_date(); ?>
-                    </time>
+                  <time datetime="<?php echo get_the_date( 'Y-m-d' ); ?>"
+                    class="text-sm font-medium">
+                    <?php echo get_the_date( 'd/m/Y' ); ?>
+                </time>
                 </div>
                 <div class="flex gap-1 items-center">
                     <?php echo drdev_inline_svg('/assets/images/icons/3p.svg', '', '', '14', '14'); ?>

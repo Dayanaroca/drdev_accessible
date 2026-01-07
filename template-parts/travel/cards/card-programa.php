@@ -6,10 +6,10 @@ if ( ! $travel ) {
     return;
 }
 ?>
-<article <?php post_class( 'accesible-seccion flex flex-col md:flex-row gap-0 accesible-seccion bg-white overflow-hidden border-card rounded-t-[0.625rem] rounded-b-none' ); ?>>
+<article <?php post_class( 'accesible-seccion flex flex-col md:flex-row gap-0 accesible-seccion bg-white overflow-hidden border-card rounded-t-[0.625rem] md:md:rounded-tr-none md:rounded-b-none' ); ?>>
 <?php if ( $travel['thumbnail_url'] ) : ?>
     <div class="w-full md:w-[28%]">
-        <img src="<?php echo esc_url(  $travel['thumbnail_url'] ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?>" class="w-full h-auto min-h-[350px] object-cover rounded-t-[0.625rem] md:rounded-l-[0.625rem]">
+        <img src="<?php echo esc_url(  $travel['thumbnail_url'] ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?>" class="w-full h-auto min-h-[350px] object-cover rounded-t-[0.625rem] md:md:rounded-tr-none md:rounded-b-none">
     </div>
 <?php endif; ?>
     <div class="accesible-seccion flex flex-col justify-between w-full md:w-[72%] px-3 lg:px-5 pt-6 pb-8 bg-color1 border-b-2 border-b-primary">

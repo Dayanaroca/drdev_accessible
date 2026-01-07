@@ -50,7 +50,7 @@ $icon_tiktok = drdev_image('/assets/images/icons/tiktok.svg', 'TikTok', '', '', 
       <?php else : ?>
         <div class="site-logo h-10 md:h-16 flex items-center">
           <?php
-            $logoheader = drdev_image('/assets/images/commons/logo-enjoy-color.jpg', 'Logo ETG', '', '', '150', '52', 'Logo ETG');
+            $logoheader = drdev_inline_svg('/assets/images/commons/logo.svg', 'text-baseblack icon-arrow', '', '150', '61');
             echo drdev_link('', '', esc_url(home_url('/')), '', '', '', $logoheader);
           ?>
         </div>
@@ -65,8 +65,8 @@ $icon_tiktok = drdev_image('/assets/images/icons/tiktok.svg', 'TikTok', '', '', 
           echo drdev_button('flex items-center mr-4 h-full md:hidden focus:outline-none', '', '', 'aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu"', 'menu-toggle', $icon);
           ?>
       <!-- </div> -->
-        <div class="hidden md:flex flex-row justify-end">
-          <div class="header-blue flex items-center justify-center bg-secondary px-6 pt-2 pb-3 border-r border-r-white rounded-bl-[0.625rem]">
+        <div class="hidden md:flex flex-row justify-end header-blue bg-secondary py-2 rounded-bl-[0.625rem]">
+          <div class="flex items-center justify-center px-6 border-r border-r-white rounded-bl-[0.625rem]">
             <?php
               $logo = drdev_image('/assets/images/icons/support_agent.svg', 'Te ayudamos', '', '', '24', '24', 'Te ayudamos');
               $text_link = esc_attr__( '¿Te ayudamos?', 'drdevcustomlanguage' );
@@ -74,69 +74,62 @@ $icon_tiktok = drdev_image('/assets/images/icons/tiktok.svg', 'TikTok', '', '', 
               echo drdev_link('text-white text-sm font-semibold tracking-[0.0225rem]', $text_link, $url_contacto, '', '','',$logo);
             ?>
           </div>
-          <div class="header-blue flex items-center justify-center bg-secondary px-6 py-3 border-r border-r-white">
+          <div class="flex items-center justify-center px-6 border-r border-r-white">
             <?php
               $text_link = esc_attr__( 'Quienes somos', 'drdevcustomlanguage' );
               $url_contacto = esc_url( home_url( '/sobre-nosotros/' ) );
               echo drdev_link('text-white text-sm font-semibold tracking-[0.0225rem]', $text_link, $url_contacto, '', '','','');
             ?>
           </div>
-          <div class="header-blue flex items-center justify-center bg-secondary px-6 py-3 border-r border-r-white">
+          <div class="flex items-center justify-center px-6 border-r border-r-white">
             <div class="relative">
+                  <button
+                      id="currency-toggle"
+                      class="flex items-center gap-2 text-white focus:outline-none focus:ring-2 focus:ring-white"
+                      aria-haspopup="menu"
+                      aria-expanded="false">
+                      <img src="/wp-content/themes/drdevaccesible/assets/images/icons/eur.svg" alt="" class="w-5 h-5" aria-hidden="true">
+                      <span class="font-medium">EUR</span>
+                      <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                          <path d="M5.5 7.5l4.5 4.5 4.5-4.5" />
+                      </svg>
+                  </button>
+                  <div
+                      id="currency-menu"
+                      class="hidden absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-xl z-50"
+                      role="menu"
+                      aria-labelledby="currency-toggle">
+                  <ul class="py-2">
+                      <li>
+                          <button
+                              class="flex items-center gap-3 w-full px-4 py-2 text-left hover:bg-gray-100"
+                              role="menuitemradio"
+                              aria-checked="true"
+                              data-currency="EUR"
+                          >
+                              <img src="/wp-content/themes/drdevaccesible/assets/images/icons/eur.svg" alt="" class="w-5 h-5" aria-hidden="true">
+                              <span>EUR</span>
+                          </button>
+                      </li>
+                      <li>
+                          <button
+                              class="flex items-center gap-3 w-full px-4 py-2 text-left hover:bg-gray-100"
+                              role="menuitemradio"
+                              aria-checked="false"
+                              data-currency="USD">
+                              <img src="/wp-content/themes/drdevaccesible/assets/images/icons/usd.svg" alt="" class="w-5 h-5" aria-hidden="true">
+                              <span>USD</span>
+                          </button>
+                      </li>
+                  </ul>
+              </div>
 
-    <!-- BOTÓN -->
-    <button
-        id="currency-toggle"
-        class="flex items-center gap-2 text-white focus:outline-none focus:ring-2 focus:ring-white"
-        aria-haspopup="menu"
-        aria-expanded="false"
-    >
-        <img src="/wp-content/themes/drdevaccesible/assets/images/icons/eur.svg" alt="" class="w-5 h-5" aria-hidden="true">
-        <span class="font-medium">EUR</span>
-        <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-            <path d="M5.5 7.5l4.5 4.5 4.5-4.5" />
-        </svg>
-    </button>
-
-    <!-- MENÚ -->
-    <div
-        id="currency-menu"
-        class="hidden absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-xl z-50"
-        role="menu"
-        aria-labelledby="currency-toggle"
-    >
-        <ul class="py-2">
-            <li>
-                <button
-                    class="flex items-center gap-3 w-full px-4 py-2 text-left hover:bg-gray-100"
-                    role="menuitemradio"
-                    aria-checked="true"
-                    data-currency="EUR"
-                >
-                    <img src="/wp-content/themes/drdevaccesible/assets/images/icons/eur.svg" alt="" class="w-5 h-5" aria-hidden="true">
-                    <span>EUR</span>
-                </button>
-            </li>
-
-            <li>
-                <button
-                    class="flex items-center gap-3 w-full px-4 py-2 text-left hover:bg-gray-100"
-                    role="menuitemradio"
-                    aria-checked="false"
-                    data-currency="USD">
-                    <img src="/wp-content/themes/drdevaccesible/assets/images/icons/usd.svg" alt="" class="w-5 h-5" aria-hidden="true">
-                    <span>USD</span>
-                </button>
-            </li>
-        </ul>
-    </div>
-
-</div>
-
-
-          <p id="currency-status" class="sr-only" aria-live="polite"></p>
           </div>
-          <div class="header-blue flex items-center justify-center bg-secondary px-6 py-3">
+
+
+          <p id="currency-selector" class="sr-only" aria-live="polite"></p>
+          </div>
+          <div class="flex items-center justify-center  px-6 ">
             <?php
              echo do_shortcode('[wpml_language_selector_widget]');
             ?>

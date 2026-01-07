@@ -295,7 +295,7 @@ global $drdev_global;
                         <!-- Redes sociales -->
                         <div class="mb-6 md:mb-0 w-full lg:w-1/3">
                             <h4 class="text-[0.875rem] font-normal text-color11 mb-2 text-center md:text-left">
-                                <?php esc_html_e( 'Si tienes alguna pregunta llámenos 24/7:', 'drdevcustomlanguage' ); ?>
+                                <?php esc_html_e( 'Si tiene alguna pregunta llámenos 24/7:', 'drdevcustomlanguage' ); ?>
                             </h4>
                             <div class="flex flex-row gap-2 items-center justify-center md:justify-start">
                                 <?php
@@ -342,7 +342,7 @@ global $drdev_global;
                         <!-- Newsletter -->
                         <div class="w-full md:w-[55%] lg:w-1/4">
                             <h4 class="text-sm font-bold mb-2 text-white">
-                                <?php esc_html_e( 'Suscríbete a nuestra Newsletter', 'drdevcustomlanguage' ); ?>                            
+                                <?php esc_html_e( 'Suscríbete a nuestra newsletter', 'drdevcustomlanguage' ); ?>                            
                             </h4>
                             <form class="flex flex-col space-y-2">
                                 <div class="flex flex-row gap-0">

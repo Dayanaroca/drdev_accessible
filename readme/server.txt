@@ -1,0 +1,14 @@
+# REST API
+location /wp-json/ {
+    try_files $uri $uri/ /index.php?$args;
+}
+
+# CPT / Taxonomías
+location ~ ^/(viajes|destino)/ {
+    try_files $uri $uri/ /index.php?$args;
+}
+
+# Catch-all sin duplicar '/'
+location ~ ^/(.+)/?$ {
+    try_files $uri $uri/ /index.php?$args;
+}

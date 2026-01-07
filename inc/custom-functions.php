@@ -53,39 +53,27 @@ function drdev_customize_register($wp_customize) {
         'type'     => 'text',
     ]);
     // ------------Social media------------//
-    $wp_customize->add_setting('company_tiktok', [
+     $wp_customize->add_setting('company_tiktok', [
         'default'   => '',
         'transport' => 'refresh',
     ]);
 
     $wp_customize->add_control('company_tiktok_control', [
-        'label'    => __('TikTok URL', 'drdevcustomlanguage'),
+        'label'    => __('TikTok URL', 'drdevholapacks'),
         'section'  => 'company_data_section',
         'settings' => 'company_tiktok',
         'type'     => 'url',
     ]);
 
-    $wp_customize->add_setting('company_facebook', [
+        $wp_customize->add_setting('company_facebook', [
         'default'   => '',
         'transport' => 'refresh',
     ]);
 
     $wp_customize->add_control('company_facebook_control', [
-        'label'    => __('Facebook URL', 'drdevcustomlanguage'),
+        'label'    => __('Facebook URL', 'drdevholapacks'),
         'section'  => 'company_data_section',
         'settings' => 'company_facebook',
-        'type'     => 'url',
-    ]);
-
-    $wp_customize->add_setting('company_facebook_ylv', [
-        'default'   => '',
-        'transport' => 'refresh',
-    ]);
-
-    $wp_customize->add_control('company_facebook_ylv_control', [
-        'label'    => __('Facebook URL YLV', 'drdevcustomlanguage'),
-        'section'  => 'company_data_section',
-        'settings' => 'company_facebook_ylv',
         'type'     => 'url',
     ]);
 
@@ -95,21 +83,9 @@ function drdev_customize_register($wp_customize) {
     ]);
 
     $wp_customize->add_control('company_instagram_control', [
-        'label'    => __('Instagram URL', 'drdevcustomlanguage'),
+        'label'    => __('Instagram URL', 'drdevholapacks'),
         'section'  => 'company_data_section',
         'settings' => 'company_instagram',
-        'type'     => 'url',
-    ]);
-
-    $wp_customize->add_setting('company_instagram_ylv', [
-        'default'   => '',
-        'transport' => 'refresh',
-    ]);
-
-    $wp_customize->add_control('company_instagram__ylv_control', [
-        'label'    => __('Instagram URL YLV', 'drdevcustomlanguage'),
-        'section'  => 'company_data_section',
-        'settings' => 'company_instagram_ylv',
         'type'     => 'url',
     ]);
     $wp_customize->add_setting('company_linkedin', [
@@ -118,7 +94,7 @@ function drdev_customize_register($wp_customize) {
     ]);
 
     $wp_customize->add_control('company_linkedin_control', [
-        'label'    => __('LinkedIn URL', 'drdevcustomlanguage'),
+        'label'    => __('LinkedIn URL', 'drdevholapacks'),
         'section'  => 'company_data_section',
         'settings' => 'company_linkedin',
         'type'     => 'url',
@@ -129,7 +105,7 @@ function drdev_customize_register($wp_customize) {
     ]);
 
     $wp_customize->add_control('company_youtube_control', [
-        'label'    => __('YouTube URL', 'drdevcustomlanguage'),
+        'label'    => __('YouTube URL', 'drdevholapacks'),
         'section'  => 'company_data_section',
         'settings' => 'company_youtube',
         'type'     => 'url',

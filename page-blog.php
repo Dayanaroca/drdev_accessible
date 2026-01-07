@@ -21,6 +21,8 @@ get_header(); ?>
         get_template_part('template-parts/blog/content-titlewithtextv2');
         get_template_part('template-parts/blog/content-destinationsv2');
         get_template_part('template-parts/blog/content-article');
+        get_template_part('template-parts/blog/content-category');
+        get_template_part('template-parts/blog/content-tag');
         get_template_part('template-parts/commons/content-contactcita');
         if( function_exists('render_faq_group') ) {
             render_faq_group('general', 'Preguntas frecuentes');

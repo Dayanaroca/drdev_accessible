@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
             <?php 
             $text= __( 'Reserva tu scooter', 'drdevcustomlanguage' ); 
             $text2= __( 'Descarga nuestro catálogo', 'drdevcustomlanguage' ); 
-            echo drdev_link('btn-primary w-full lg:w-auto', $text, '#'); 
+            echo drdev_link('btn-primary w-full lg:w-auto', $text, esc_url( get_permalink( get_page_by_path( 'contacto' ) ) )); 
             echo drdev_link('btn-secondary w-full lg:w-auto', $text2, '#'); ?>
         </div>
     </div>

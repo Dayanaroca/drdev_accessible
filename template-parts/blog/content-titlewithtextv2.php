@@ -5,7 +5,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  */
   ?>
-<section class="accesible-seccion w-full max-w-screen-etg mx-auto px-2.5 lg:px-0 mt-6 lg:mt-14 mb-4 lg:mb-8">
+<section class="accesible-seccion w-full max-w-screen-etg mx-auto px-2.5 lg:px-0">
     <h2 class="font-bold text-4xl lg:text-4xl text-left mb-5">
         <?php esc_html_e( 'Guías y novedades de Enjoy Travel Group', 'drdevcustomlanguage' ); ?>
     </h2>

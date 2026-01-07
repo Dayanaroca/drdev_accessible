@@ -345,7 +345,7 @@ body.high-contrast a {
   }
 
   .descripcion img {
-    width: 100%;
+    width: auto;
     height: auto;
     display: block;
     border-radius: 0.625rem;

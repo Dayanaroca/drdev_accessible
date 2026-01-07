@@ -14,9 +14,14 @@ get_header();
         get_template_part('template-parts/destinations/content-section1');
 
         $term = get_queried_object();
-
+        $archive_name = single_term_title( '', false );
         drdev_render_travel_block([
-            'title' => __( 'Programas de viaje accesibles para descubrir Cuba', 'drdevcustomlanguage' ),
+            'title' => esc_html(
+                sprintf(
+                    __( 'Programas de viaje accesibles para descubrir %s', 'drdevcustomlanguage' ),
+                    $archive_name
+                )
+            ),
             'tax_query' => [
                 [
                     'taxonomy' => 'destino',
@@ -31,6 +36,7 @@ get_header();
             ],
             'template' => 'programa',
             'grid_classes' => 'grid grid-cols-1 gap-6',
+            'posts_per_page'  => -1,
         ]);
 
         drdev_render_travel_block([
@@ -150,7 +156,7 @@ get_header();
 
         <?php get_template_part('template-parts/commons/content-contactcita');
         get_template_part( 'template-parts/destinations/content', 'otherServices'); 
-        get_template_part( 'template-parts/destinations/content', 'bannerScootersV2'); 
+        get_template_part('template-parts/commons/content-bannerScooters');
         get_template_part( 'template-parts/destinations/content', 'scooters');        
         get_template_part( 'template-parts/commons/content', 'cf7');
         if( function_exists('render_faq_group') ) {

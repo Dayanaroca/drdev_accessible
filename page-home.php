@@ -27,7 +27,7 @@ get_header(); ?>
         get_template_part('template-parts/home/content-testimonies');
         get_template_part('template-parts/commons/content-contactcita');
         if( function_exists('render_faq_group') ) {
-            render_faq_group('general', 'Preguntas frecuentes');
+            render_faq_group('general', 'Preguntas más frecuentes');
         }
     ?>    
 </main>

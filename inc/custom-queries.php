@@ -217,15 +217,19 @@ function drdev_viajes_permalink( $permalink, $post ) {
 
     return $permalink;
 }
-add_action( 'init', 'drdev_viajes_rewrite_rules' );
-function drdev_viajes_rewrite_rules() {
+add_action( 'init', function () {
+    add_rewrite_tag( '%destino%', '([^/]+)' );
+    add_rewrite_tag( '%tipo_viaje%', '([^/]+)' );
+});
 
+add_action( 'init', function () {
     add_rewrite_rule(
         '^viajes/([^/]+)/([^/]+)/([^/]+)/?$',
         'index.php?post_type=viajes&name=$matches[3]',
         'top'
     );
-}
+});
+
 
 // add_filter( 'wpcf7_form_tag', function ( $tag ) {
 

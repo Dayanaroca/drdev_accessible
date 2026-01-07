@@ -5,6 +5,21 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  */
 if ( ! defined( 'ABSPATH' ) ) exit;
+function drdev_get_destino_link( $slug ) {
+  $term = get_term_by( 'slug', $slug, 'destino' );
+
+  if ( ! $term || is_wp_error( $term ) ) {
+    return '';
+  }
+
+  // WPML: obtener el término en el idioma actual
+  if ( function_exists( 'apply_filters' ) ) {
+    $term_id = apply_filters( 'wpml_object_id', $term->term_id, 'destino', true );
+    $term    = get_term( $term_id, 'destino' );
+  }
+
+  return get_term_link( $term );
+}
 ?>
 
 <section aria-labelledby="destinos-title" class="w-full max-w-screen-etg ml-2.5 lg:mx-auto gap-6">
@@ -14,7 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
   <div class="trips-slider swiper">
     <div class="swiper-wrapper">
       <div class="swiper-slide">
-        <a href="<?php echo esc_url( home_url( '/destino/rep-dominicana/' ) ); ?>" class="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-off focus-visible:ring-primary">
+       <a href="<?php echo esc_url( drdev_get_destino_link( 'rep-dominicana' ) ); ?>" class="group block">
          <article class="relative rounded-[0.9375rem] overflow-hidden transition-shadow duration-300 group-hover:shadow-[0_10px_25px_rgba(0,0,0,0.25)] group-focus-visible:shadow-[0_10px_25px_rgba(0,0,0,0.25)]">
             <h3 id="destino-rd" class="sr-only">
               <?php esc_html_e( 'Destino: República Dominicana', 'drdevcustomlanguage' ); ?>
@@ -51,9 +66,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
       <!-- Card: México -->
       <div class="swiper-slide">
-        <a
-          href="<?php echo esc_url( home_url( '/destino/mexico/' ) ); ?>"
-          class="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary">
+        <a href="<?php echo esc_url( drdev_get_destino_link( 'mexico' ) ); ?>" class="group block">
           <article class="relative rounded-[0.9375rem] overflow-hidden transition-shadow duration-300 group-hover:shadow-[0_10px_25px_rgba(0,0,0,0.25)] group-focus-visible:shadow-[0_10px_25px_rgba(0,0,0,0.25)]">
             <h3 id="destino-mexico" class="sr-only">
               <?php esc_html_e( 'Destino: México', 'drdevcustomlanguage' ); ?>
@@ -90,8 +103,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
       <!-- Card: Cuba -->
       <div class="swiper-slide">
-        <a href="<?php echo esc_url( home_url( '/destino/cuba/' ) ); ?>"
-          class="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary">
+        <a href="<?php echo esc_url( drdev_get_destino_link( 'cuba' ) ); ?>" class="group block">
           <article class="relative rounded-[0.9375rem] overflow-hidden transition-shadow duration-300 group-hover:shadow-[0_10px_25px_rgba(0,0,0,0.25)] group-focus-visible:shadow-[0_10px_25px_rgba(0,0,0,0.25)]">
             <h3 id="destino-cuba" class="sr-only">
               <?php esc_html_e( 'Destino: Cuba', 'drdevcustomlanguage' ); ?>
@@ -128,8 +140,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
       <!-- Card: Estados Unidos -->
       <div class="swiper-slide">
-        <a href="<?php echo esc_url( home_url( '/destino/florida/' ) ); ?>"
-          class="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary">
+        <a href="<?php echo esc_url( drdev_get_destino_link( 'florida' ) ); ?>" class="group block">
           <article class="relative rounded-[0.9375rem] overflow-hidden transition-shadow duration-300 group-hover:shadow-[0_10px_25px_rgba(0,0,0,0.25)] group-focus-visible:shadow-[0_10px_25px_rgba(0,0,0,0.25)]">
             <h3 id="destino-eeuu" class="sr-only">
               <?php esc_html_e( 'Destino: Estados Unidos', 'drdevcustomlanguage' ); ?>

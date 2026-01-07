@@ -9,18 +9,13 @@ function drdev_init_theme() {
             'template' => 'page-home.php'
         ],
         [
-            'title'    => __('Testimonios', 'drdevcustomlanguage'),
-            'slug'     => 'testimonios',
-            'template' => 'page-testimonies.php'
-        ],
-        [
             'title'    => __('Blog', 'drdevcustomlanguage'),
             'slug'     => 'blog',
             'template' => 'page-blog.php'
         ],
         [
             'title'    => __('¿Te ayudamos?', 'drdevcustomlanguage'),
-            'slug'     => 'te-ayudamos',
+            'slug'     => 'contacto',
             'template' => 'page-contact.php'
         ],
         [
@@ -216,12 +211,6 @@ function drdev_init_theme() {
                 update_term_meta($term_id, 'flag_svg', esc_url_raw($svg_path));
             }
         }
-    }
-
-    // Indicar que la página "Blog" será la página de entradas
-    $blog_page = get_page_by_path('blog');
-    if ( $blog_page ) {
-        update_option('page_for_posts', $blog_page->ID);
     }
 
 }

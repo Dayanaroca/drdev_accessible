@@ -88,12 +88,15 @@ document.addEventListener('DOMContentLoaded', function() {
     loop: false,
     pagination: false,
     navigation: false,
+    simulateTouch: true,
+    touchStartPreventDefault: false,
     breakpoints: {
        768: { slidesPerView: 3.2, spaceBetween: 10 },
       1024: {
         slidesPerView: 4,
         spaceBetween: 16,
-        allowTouchMove: false
+        allowTouchMove: false,
+        simulateTouch: false
       }
     },
     a11y: {

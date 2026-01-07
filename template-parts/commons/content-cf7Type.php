@@ -19,6 +19,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
     if ( $host === 'accessible.local' ) {
         echo do_shortcode( '[contact-form-7 id="d39238e" title="Formulario por tipo de programa"]' );
     } else {
-        echo do_shortcode( '[contact-form-7 id="6ea0aac" title="Formulario de contacto 1"]' );
+        echo do_shortcode( '[contact-form-7 id="3a2ccec" title="Formulario por tipo de programa"]' );
     } ?>
 </section>
